@@ -4,6 +4,7 @@ A Ruby wrapper for the 3PL Central SOAP API.
 
 3PL Central is a SaaS WMS. Read more here at http://www.3plcentral.com/
 
+View the 3PL API Documentation here: https://app02.3plcentral.com/webserviceexternal/contracts.asmx
 ## Installation
 
 Add this line to your application's Gemfile:
