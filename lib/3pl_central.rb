@@ -1,5 +1,6 @@
 require "3pl_central/version"
+require "3pl_central/configuration.rb"
 
-module 3plCentral
+module ThreePlCentral
   # Your code goes here...
 end

@@ -5,7 +5,7 @@ require '3pl_central/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "3pl_central"
-  spec.version       = 3plCentral::VERSION
+  spec.version       = ThreePlCentral::VERSION
   spec.authors       = ["Adam Runner"]
   spec.email         = ["adamrunner@gmail.com"]
   spec.summary       = "Ruby wrapper for the 3PL Central API"
