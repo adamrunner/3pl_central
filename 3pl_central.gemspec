@@ -5,12 +5,12 @@ require '3pl_central/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "3pl_central"
-  spec.version       = ThreePlCentral::VERSION
+  spec.version       = ThreePLCentral::VERSION
   spec.authors       = ["Adam Runner"]
   spec.email         = ["adamrunner@gmail.com"]
   spec.summary       = "Ruby wrapper for the 3PL Central API"
   spec.description   = "Ruby wrapper for the 3PL Central API"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/adamrunner/3pl_central"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "vcr"
 
-  spec.add_runtime_dependency "savon", "~> 1.0.0"
+  spec.add_runtime_dependency "savon", "~> 2.7"
 end

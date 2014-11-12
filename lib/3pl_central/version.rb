@@ -1,3 +1,3 @@
-module ThreePlCentral
+module ThreePLCentral
   VERSION = "0.0.1"
 end
