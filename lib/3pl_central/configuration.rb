@@ -16,14 +16,14 @@ module ThreePLCentral
 	end
 
 	class Configuration
-		attr_accessor :three_pl_key, :login, :password, :default_facility_id, :user_login_id
+		attr_accessor :three_pl_key, :login, :password, :default_facility_id, :three_pl_id
 
 		def initialize
 			@three_pl_key        = ''
 			@login               = ''
 			@password            = ''
 			@default_facility_id = ''
-			@user_login_id 			 = ''
+			@three_pl_id 			 = ''
 		end
 	end
 end

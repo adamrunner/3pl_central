@@ -12,10 +12,15 @@ module ThreePLCentral
 
     def self.read_creds
       {"userLoginData" => {
-        "ThreePLID" => ThreePLCentral.configuration.user_login_id,
+        "ThreePLID" => ThreePLCentral.configuration.three_pl_id,
         login: ThreePLCentral.configuration.login,
         password: ThreePLCentral.configuration.password
         }}
     end
+
+    def self.parser
+      @parser ||= Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym })
+    end
+    
   end
 end

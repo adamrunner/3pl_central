@@ -31,7 +31,7 @@ Or install it yourself as:
     c.login               = "customer_login" #configured in 3PL Central -> Customer -> Customer Users
     c.password            = "customer_password" # same as login
     c.default_facility_id = 1 #this might be removed in a later version, and we'll just look for the "Facility ID" on the order or item level.
-    c.user_login_id       = 4 #unsure where to find this currently
+    c.user_login_id       = 4 #We had to contact our account manager with 3PL Central to get this information.
   end
 
 ```
@@ -89,6 +89,13 @@ ThreePLCentral::Order.create({
 
 # => true
 ```
+## TODOs
+1. Move the credentials to a "per request" basis, rather than being configured for the entire instance of the gem, in our integration we'll use this to separate out to different (3PL Central) customers that we're interacting with.
+1. Write tests, there aren't any done currently. However there's not a whole lot of logic either.
+1. Expose configuration of Savon gem. Currently the defaults we set aren't changeable, and Savon is going to be spitting out a fair amount of debugging information.
+1. Fix `Guardfile`, it only seems to generate documentation currently, not run the specs.
+1. Wrap other functionality, an observant user might notice that only part of the 3PL Central web service is wrapped, that's because we just did what we needed for our specific implementation.
+1. Document more examples, we should have a working example for each of the services that are wrapped.
 
 ## Contributing
 

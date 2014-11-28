@@ -17,34 +17,19 @@ module ThreePLCentral
       ThreePLCentral::Services.create_orders(xml_hash)
     end
 
-    def self.find(params)
-      xml_hash = read_creds
-      xml_hash["limitCount"] = 10
-      xml_hash["focr"] = params
-      ThreePLCentral::Services.find_orders(xml_hash)
-    end
-
     class << self
+
+      def find(params)
+        xml_hash = read_creds
+        xml_hash["limitCount"] = 10
+        xml_hash["focr"] = params
+        response = ThreePLCentral::Services.find_orders(xml_hash)
+        parser.parse(response.body[:find_orders])["orders"]["order"].arrayify
+      end
 
       def create(params)
         o = Order.new(params)
         o.create
-      end
-
-      def method_missing(meth, *args, &block)
-        if meth.to_s =~ /^find_by_(.+)$/
-          run_find_by_method($1, *args, &block)
-        else
-          super
-        end
-      end
-
-      def respond_to?(meth)
-        if meth.to_s =~ /^find_by_(.+)$/
-          true
-        else
-          super
-        end
       end
 
     end
