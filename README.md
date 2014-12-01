@@ -21,7 +21,24 @@ Or install it yourself as:
 
 ## Usage
 
-### Configuration
+### Per Usage Configuration
+This method works indentically to the other, it just makes it easier to deal with different customer records, usernames, IDs, etc. that you might have in 3PL Central.
+```ruby
+client = ThreePLCentral::Client.new(three_pl_key: "{a123457-a389-4674-bcdd-a646150aaf}", login: "3pluser"  , password: "3plpass", three_pl_id: "123")
+
+client.create_order(params_for_order_create)
+
+client.find_order(params_for_find_order)
+
+client.find_small_parcel_order(params_for_shipment)
+
+client.get_stock_status(params_for_stock_status)
+
+
+```
+
+
+### Per Application Configuration
 
 ```ruby
   require '3pl_central'
