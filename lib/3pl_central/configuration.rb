@@ -7,7 +7,10 @@ module ThreePLCentral
 	end
 
 	def self.client
-		@client ||= Savon.client(wsdl:WSDL_URL, ssl_version: :TLSv1, ssl_verify_mode: :none, log_level: :debug, log: true, pretty_print_xml: true, no_message_tag:true, convert_request_keys_to: :camelcase)
+		# @client ||= Savon.client(wsdl:WSDL_URL, ssl_version: :TLSv1, ssl_verify_mode: :none, log_level: :debug, log: true, pretty_print_xml: true, no_message_tag:true, convert_request_keys_to: :camelcase)
+		Savon.client do |wsdl, http|
+			wsdl.document = WSDL_URL
+		end
 	end
 
 	def self.configure
