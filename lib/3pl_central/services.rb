@@ -17,9 +17,9 @@ module ThreePLCentral
                   xml.tns :Order do |xml|
                     xml.tns :TransInfo do |xml|
                       xml.tns :ReferenceNum, data[:trans_info][:reference_num]
-                      xml.tns :ExpectedDate, data[:trans_info][:expected_date]
-                      xml.tns :EarliestShipDate, data[:trans_info][:earliest_ship_date]
-                      xml.tns :ShipCancelDate, data[:trans_info][:ship_cancel_date]
+                      xml.tns :ExpectedDate, data[:trans_info][:expected_date] if data[:trans_info][:expected_date]
+                      xml.tns :EarliestShipDate, data[:trans_info][:earliest_ship_date] if data[:trans_info][:earliest_ship_date]
+                      xml.tns :ShipCancelDate, data[:trans_info][:ship_cancel_date] if data[:trans_info][:ship_cancel_date]
                     end
                     xml.tns :ShipTo do |xml|
                       xml.tns :Name, data[:ship_to][:name]
@@ -38,6 +38,7 @@ module ThreePLCentral
                     xml.tns :ShippingInstructions do |xml|
                       xml.tns :Carrier, data[:shipping_instructions][:carrier]
                       xml.tns :Mode, data[:shipping_instructions][:mode]
+                      xml.tns :BillingCode, data[:shipping_instructions][:billing_code]
                       xml.tns :ShippingNotes, data[:shipping_instructions][:shipping_notes]
                     end
                     xml.tns :Notes, data[:notes]
@@ -47,8 +48,8 @@ module ThreePLCentral
                           xml.tns :SKU, order_item[:sku]
                           xml.tns :Qty, order_item[:qty]
                           xml.tns :FulfillmentSalePrice, order_item[:fulfillment_sale_price]
-                          xml.tns :FulfillmentDiscountPercentage, order_item[:fulfillment_discount_percentage]
-                          xml.tns :FulfillmentDiscountAmount, order_item[:fulfillment_discount_amount]
+                          xml.tns :FulfillmentDiscountPercentage, order_item[:fulfillment_discount_percentage] if order_item[:fulfillment_discount_percentage]
+                          xml.tns :FulfillmentDiscountAmount, order_item[:fulfillment_discount_amount] if order_item[:fulfillment_discount_amount]
                         end
                       end
                     end

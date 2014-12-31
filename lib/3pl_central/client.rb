@@ -1,5 +1,6 @@
 module ThreePLCentral
   class Client
+    include ::ThreePLCentral::CoreExtensions
     def initialize(params)
       ThreePLCentral.configure do |c|
         c.three_pl_key = params[:three_pl_key]
@@ -26,8 +27,8 @@ module ThreePLCentral
     end
 
     def run_method(class_name, method_name, *args)
-      full_class = "ThreePLCentral::" + class_name.camelize
-      full_class.constantize.send(method_name.to_sym, *args)
+      full_class = "ThreePLCentral::" + camelize(class_name)
+      constantize(full_class).send(method_name.to_sym, *args)
     end
   end
 end
