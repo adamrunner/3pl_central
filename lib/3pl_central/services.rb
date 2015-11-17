@@ -57,19 +57,21 @@ module ThreePLCentral
                       xml.tns :FulfillInvShippingAndHandling, data[:fulfillment_info][:fulfill_inv_shipping_and_handling]
                       xml.tns :FulfillInvTax, data[:fulfillment_info][:fulfill_inv_tax]
                     end
-                    xml.tns :SoldTo do |xml|
-                      xml.tns :Name, data[:sold_to][:name]
-                      xml.tns :CompanyName, data[:sold_to][:company_name]
-                      xml.tns :Address do |xml|
-                        xml.tns :Address1, data[:sold_to][:address][:address1]
-                        xml.tns :Address2, data[:sold_to][:address][:address2]
-                        xml.tns :City, data[:sold_to][:address][:city]
-                        xml.tns :State, data[:sold_to][:address][:state]
-                        xml.tns :Zip, data[:sold_to][:address][:zip]
-                        xml.tns :Country, data[:sold_to][:address][:country]
+                    if data[:sold_to]
+                      xml.tns :SoldTo do |xml|
+                        xml.tns :Name, data[:sold_to][:name]
+                        xml.tns :CompanyName, data[:sold_to][:company_name]
+                        xml.tns :Address do |xml|
+                          xml.tns :Address1, data[:sold_to][:address][:address1]
+                          xml.tns :Address2, data[:sold_to][:address][:address2]
+                          xml.tns :City, data[:sold_to][:address][:city]
+                          xml.tns :State, data[:sold_to][:address][:state]
+                          xml.tns :Zip, data[:sold_to][:address][:zip]
+                          xml.tns :Country, data[:sold_to][:address][:country]
+                        end
+                        xml.tns :PhoneNumber1, data[:sold_to][:phone_number1]
+                        xml.tns :EmailAddress1, data[:sold_to][:email_address1]
                       end
-                      xml.tns :PhoneNumber1, data[:sold_to][:phone_number1]
-                      xml.tns :EmailAddress1, data[:sold_to][:email_address1]
                     end
                   end
                 end
