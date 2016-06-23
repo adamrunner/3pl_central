@@ -63,34 +63,36 @@ client.get_stock_status(params_for_stock_status)
 
 ThreePLCentral::Order.create({
   trans_info: {
-    reference_num: "100001",
+    reference_num: "100001",  # required
     expected_date: "2014-11-12",
     earliest_ship_date: "2014-11-12",
     ship_cancel_date:  "2014-11-12"},
   ship_to: {
     name: "Test Test",
-    company_name: "Test Co.",
+    company_name: "Test Co.",  # required
     address:{
-      address1: "Toronto",
+      address1: "Toronto",  # required
       address2:"Ste. 2",
-      city:"1234 Fake St.",
-      state:"ON",
-      zip:"M4B 1B3",
-      country:"Canada"},
+      city:"1234 Fake St.",  # required
+      state:"ON",  # required
+      zip:"M4B 1B3",  # required
+      country:"Canada"  # required
+    },
     phone_number1: "999-999-9999",
     email_address1: "test@test.com",
   },
   shipping_instructions: {
-    carrier: "FedEx",
-    mode: "Ground",
+    carrier: "FedEx",  # required
+    mode: "Ground",  # required
+    billing_code: "Prepaid"  # required
     shipping_notes: "I need it ASAP!"},
   notes: "More notes!",
-  order_line_items: [
+  order_line_items: [  # required at least one
     # NOTE: This is an array of hashes, each hash only contain one key:
     # `order_line_item`
     { order_line_item: {
-      sku:"90RND-010101",
-      qty:"10",
+      SKU:"90RND-010101", # It must be all uppercase, required
+      qty:"10",  # required
       fulfillment_sale_price:9.99,
       fulfillment_discount_percentage:10,
       fulfillment_discount_amount:0.99}}
