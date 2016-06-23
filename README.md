@@ -75,19 +75,21 @@ ThreePLCentral::Order.create({
       country:"Canada"},
     phone_number1: "999-999-9999",
     email_address1: "test@test.com",
-    shipping_instructions: {
-      carrier: "FedEx",
-      mode: "Ground",
-      shipping_notes: "I need it ASAP!"}
   },
+  shipping_instructions: {
+    carrier: "FedEx",
+    mode: "Ground",
+    shipping_notes: "I need it ASAP!"},
   notes: "More notes!",
   order_line_items: [
-    {
+    # NOTE: This is an array of hashes, each hash only contain one key:
+    # `order_line_item`
+    { order_line_item: {
       sku:"90RND-010101",
       qty:"10",
       fulfillment_sale_price:9.99,
       fulfillment_discount_percentage:10,
-      fulfillment_discount_amount:0.99}
+      fulfillment_discount_amount:0.99}}
   ],
   fulfillment_info:{
     fulfill_inv_shipping_and_handling:9.12,
