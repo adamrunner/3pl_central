@@ -7,7 +7,10 @@ module ThreePLCentral
 	end
 
 	def self.client
-		@client ||= Savon.client(wsdl:WSDL_URL, ssl_version: :TLSv1, ssl_verify_mode: :none, log_level: :debug, log: true, pretty_print_xml: true, no_message_tag:true, convert_request_keys_to: :camelcase)
+		@client ||= Savon.client(wsdl:WSDL_URL,
+		  ssl_version: :TLSv1, ssl_verify_mode: :none,
+			log_level: :debug, log: true, pretty_print_xml: true,
+			no_message_tag:true, convert_request_keys_to: :camelcase)
 	end
 
 	def self.configure
@@ -16,14 +19,16 @@ module ThreePLCentral
 	end
 
 	class Configuration
-		attr_accessor :three_pl_key, :login, :password, :default_facility_id, :three_pl_id
+		attr_accessor :three_pl_key, :login, :password, :default_facility_id,
+			:three_pl_id, :customer_id
 
 		def initialize
 			@three_pl_key        = ''
 			@login               = ''
 			@password            = ''
 			@default_facility_id = ''
-			@three_pl_id 			 = ''
+			@three_pl_id 			   = ''
+			@customer_id         = ''
 		end
 	end
 end

@@ -6,6 +6,7 @@ module ThreePLCentral
         c.login        = params[:login]
         c.password     = params[:password]
         c.three_pl_id  = params[:three_pl_id]
+        c.customer_id  = params[:customer_id]
       end
     end
 
