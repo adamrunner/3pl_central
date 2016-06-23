@@ -48,7 +48,11 @@ client.get_stock_status(params_for_stock_status)
     c.login               = "customer_login" #configured in 3PL Central -> Customer -> Customer Users
     c.password            = "customer_password" # same as login
     c.default_facility_id = 1 #this might be removed in a later version, and we'll just look for the "Facility ID" on the order or item level.
-    c.user_login_id       = 4 #We had to contact our account manager with 3PL Central to get this information.
+    # c.user_login_id       = 4 #We had to contact our account manager with 3PL Central to get this information.
+    c.customer_id         = 1
+
+    # three_pl_id is for reading, three_pl_key is for writing
+    c.three_pl_id         = "three_pl_id"
   end
 
 ```
