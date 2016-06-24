@@ -53,6 +53,12 @@ client.get_stock_status(params_for_stock_status)
 
     # three_pl_id is for reading, three_pl_key is for writing
     c.three_pl_id         = "three_pl_id"
+
+    # Pass configuration values to Savon
+    # See values in Savon documentation
+    c.savon_config        = {
+      log: false
+    }
   end
 
 ```
