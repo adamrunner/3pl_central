@@ -96,12 +96,16 @@ ThreePLCentral::Order.create({
   order_line_items: [  # required at least one
     # NOTE: This is an array of hashes, each hash only contain one key:
     # `order_line_item`
-    { order_line_item: {
-      SKU:"90RND-010101", # It must be all uppercase, required
-      qty:"10",  # required
-      fulfillment_sale_price:9.99,
-      fulfillment_discount_percentage:10,
-      fulfillment_discount_amount:0.99}}
+    { order_line_item:
+      {
+        SKU:"90RND-010101", # It must be all uppercase, required
+        qty:"10",  # required
+        fulfillment_sale_price:9.99,
+        fulfillment_discount_percentage:10,
+        fulfillment_discount_amount:0.99
+      }
+      # ... more objects(items) here
+    }
   ],
   fulfillment_info:{
     fulfill_inv_shipping_and_handling:9.12,
