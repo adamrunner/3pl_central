@@ -1,3 +1,6 @@
+## UPDATE 8/6/2016 
+I no longer work at a company that uses 3PL Central for their WMS, which means I cannot continue testing or maintaining of this gem. If you're interested in taking over this repository, please let me know. Furthermore if there is a way to get some sort of 3PL Central testing credentials I'd be happy to continue working with this gem in my free time. 
+
 # 3plCentral
 
 A Ruby wrapper for the 3PL Central SOAP API.
