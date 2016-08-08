@@ -6,7 +6,8 @@ module ThreePLCentral
         "ThreePLKey" => ThreePLCentral.configuration.three_pl_key,
         login: ThreePLCentral.configuration.login,
         password: ThreePLCentral.configuration.password,
-        facility_id: facility_id || ThreePLCentral.configuration.default_facility_id
+        Facility_ID: facility_id || ThreePLCentral.configuration.default_facility_id,
+        Customer_ID: ThreePLCentral.configuration.customer_id
       }}
     end
 
@@ -21,6 +22,6 @@ module ThreePLCentral
     def self.parser
       @parser ||= Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym })
     end
-    
+
   end
 end
