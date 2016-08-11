@@ -1,4 +1,4 @@
-WSDL_URL = 'https://secure-wms.com/webserviceexternal/contracts.asmx?wsdl'
+WSDL_URL = 'https://app02.3plcentral.com/WebServiceExternal/Contracts.asmx'
 SOAP_ACTION_BASE_URL = 'http://www.JOI.com/schemas/ViaSub.WMS/'
 require 'savon'
 module ThreePLCentral
