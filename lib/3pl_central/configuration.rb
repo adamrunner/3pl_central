@@ -13,7 +13,7 @@ module ThreePLCentral
 	end
 
 	def self.savon_config
-		@savon_config ||= {wsdl:WSDL_URL,
+		@savon_config ||= {wsdl:WSDL_URL, adapter: :net_http,
 		  ssl_version: :TLSv1, ssl_verify_mode: :none,
 			log_level: :debug, log: true, pretty_print_xml: true,
 			no_message_tag:true, convert_request_keys_to: :camelcase}
