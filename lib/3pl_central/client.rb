@@ -1,11 +1,14 @@
 module ThreePLCentral
   class Client
+    # TODO remove duplication, specifying config values in one place
     def initialize(params)
       ThreePLCentral.configure do |c|
         c.three_pl_key = params[:three_pl_key]
         c.login        = params[:login]
         c.password     = params[:password]
         c.three_pl_id  = params[:three_pl_id]
+        c.customer_id  = params[:customer_id]
+        c.savon_config = params[:savon_config]
       end
     end
 
