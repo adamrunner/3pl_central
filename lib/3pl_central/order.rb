@@ -24,7 +24,9 @@ module ThreePLCentral
         xml_hash["limitCount"] = 10
         xml_hash["focr"] = params
         response = ThreePLCentral::Services.find_orders(xml_hash)
-        parser.parse(response.body[:find_orders])["orders"]["order"].arrayify
+        parser.parse(response.body[:find_orders])
+          .with_indifferent_access["orders"]["order"]
+          .arrayify
       end
 
       def create(params)
